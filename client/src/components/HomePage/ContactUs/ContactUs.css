@@ -1,0 +1,20 @@
+.contact-area{
+    background-color: darkgray;
+    text-align: center;
+    display: flex
+}
+
+.contact-form{
+    margin-top: 1rem;
+    display: inline-grid;
+}
+
+.contact-form input{
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: .3rem;
+}
+
+.error {
+    color: red;
+}

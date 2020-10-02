@@ -1,0 +1,12 @@
+.header-link ul li a{
+text-decoration: none;
+}
+
+.header-link ul {
+    list-style: none;
+}
+
+.header-link li {
+    float: left;
+    margin-right: 3rem;
+}
