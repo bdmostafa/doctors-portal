@@ -68,7 +68,7 @@ const FooterTop = () => {
                     <LinkedInIcon />
                     <p>Call Now</p>
                     <Button variant="contained" color="primary">
-                        <input type="tel" name="" id="" value="+12587658425" style={{background: 'none', border: 'none', color: 'white'}}/>
+                        <input type="tel" name="" id="" defaultValue="+12587658425" style={{background: 'none', border: 'none', color: 'white'}}/>
                     </Button>
                 </Grid>
             </Grid>

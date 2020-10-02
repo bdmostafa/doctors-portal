@@ -1,7 +1,7 @@
 import { Avatar, Box, Card, CardActions, CardContent, CardHeader, Container, IconButton, makeStyles, Typography } from '@material-ui/core';
 import React from 'react';
-import herry2 from '../../../images/Ellipse 2.png';
-import herry3 from '../../../images/Ellipse 3.png'
+import herry2 from '../../images/Ellipse 2.png';
+import herry3 from '../../images/Ellipse 3.png'
 import ArrowRightAltIcon from '@material-ui/icons/ArrowRightAlt';
 
 

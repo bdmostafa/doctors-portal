@@ -32,8 +32,8 @@ const ContactUs = () => {
                         placeholder="Subject*"
                     />
                     {
-                        errors.email
-                        && <span className="error">Email is required</span>
+                        errors.subject
+                        && <span className="error">Subject is required</span>
                     }
                     <TextareaAutosize
                         required
