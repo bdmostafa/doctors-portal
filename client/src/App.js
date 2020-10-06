@@ -32,6 +32,7 @@ function App() {
             <Home />
           </Route> */}
         </Switch>
+    {/*edited*/}
     </Router>
   );
 }
