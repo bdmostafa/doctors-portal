@@ -1,0 +1,17 @@
+.header-container {
+    height:730px;
+    position:relative;
+    background-image: url('https://i.ibb.co/xGczynr/Mask-Group-2.png');
+    background-size: cover,
+}
+.header-container::after, .header-container::before {
+    height:730px;
+    content:' ';
+    position: absolute;
+    top: 0;
+    width: 33%;
+    right: 0;
+    background-color: #3A4256;
+    z-index: -1;
+}
+

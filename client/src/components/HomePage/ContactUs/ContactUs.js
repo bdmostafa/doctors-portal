@@ -1,17 +1,18 @@
 import React from 'react';
 import './ContactUs.css';
 import { useForm } from "react-hook-form";
-import { Container, TextareaAutosize } from '@material-ui/core';
+import { Button, Container, TextareaAutosize } from '@material-ui/core';
 
 
 const ContactUs = () => {
 
     const { register, errors, handleSubmit } = useForm();
     const onSubmit = data => console.log(data);
+
     return (
         <div className="contact-area">
             <Container>
-                <h4>CONTACT US</h4>
+                <h4 style={{ color: '#1CC7C1' }}>CONTACT US</h4>
                 <h2>Always Connect With Us</h2>
                 <form
                     className="contact-form"
@@ -36,6 +37,10 @@ const ContactUs = () => {
                         && <span className="error">Subject is required</span>
                     }
                     <TextareaAutosize
+                        style={{
+                            border: 'none',
+                            padding: '.75rem'
+                        }}
                         required
                         rowsMin={7}
                         aria-label="maximum height"
@@ -43,7 +48,14 @@ const ContactUs = () => {
                         defaultValue=""
                     />
                     <br />
-                    <input type="submit" />
+                    <Button
+                        type="submit"
+                        variant="contained"
+                        className="submit-btn"
+                        style={{margin: '0 auto'}}
+                    >
+                        SUBMIT
+                    </Button>
                 </form>
             </Container>
         </div>

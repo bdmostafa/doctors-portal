@@ -8,92 +8,51 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import { Box, Container, IconButton } from '@material-ui/core';
 import PhoneIcon from '@material-ui/icons/Phone';
+import doctorsInfo from '../../DataStore/DoctorsInfo';
 
 const useStyles = makeStyles({
     root: {
         maxWidth: 345,
-        textAlign: 'center'
+        textAlign: 'center',
+        boxShadow: 'none'
     },
 });
 
 const OurDoctors = () => {
     const classes = useStyles();
     return (
-        <Container style={{ width: '100%' }}>
-            <h2>OUR DOCTORS</h2>
-            <Box display="flex" justifyContent="center" m={1} p={1}>
-                <Box p={1}>
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                alt="Dr. Caudi"
-                                height="100%"
-                                image="https://i.ibb.co/hZdfwfS/5790-removebg.png"
-                                title="Dr. Caudi"
-                            />
-                            <CardContent>
-                                <Typography variant="p" component="h1">
-                                    Dr. Caudi
-                    </Typography>
-                                <Typography variant="p" color="textSecondary" component="h4">
-                                    <IconButton>
-                                        <PhoneIcon />
-                                    </IconButton>
-                        +61 452 200 126
-                    </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Box>
-                <Box p={1}>
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                alt="Dr. Caudi"
-                                height="100%"
-                                image="https://i.ibb.co/hZdfwfS/5790-removebg.png"
-                                title="Dr. Caudi"
-                            />
-                            <CardContent>
-                                <Typography variant="p" component="h1">
-                                    Dr. Caudi
-                    </Typography>
-                                <Typography variant="p" color="textSecondary" component="h4">
-                                    <IconButton>
-                                        <PhoneIcon />
-                                    </IconButton>
-                        +61 452 200 126
-                    </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Box>
-                <Box p={1}>
-                    <Card className={classes.root}>
-                        <CardActionArea>
-                            <CardMedia
-                                component="img"
-                                alt="Dr. Caudi"
-                                height="100%"
-                                image="https://i.ibb.co/hZdfwfS/5790-removebg.png"
-                                title="Dr. Caudi"
-                            />
-                            <CardContent>
-                                <Typography variant="p" component="h1">
-                                    Dr. Caudi
-                    </Typography>
-                                <Typography variant="p" color="textSecondary" component="h4">
-                                    <IconButton>
-                                        <PhoneIcon />
-                                    </IconButton>
-                        +61 452 200 126
-                    </Typography>
-                            </CardContent>
-                        </CardActionArea>
-                    </Card>
-                </Box>
+        <Container align="center">
+            <h4 style={{ color: '#15D1C5', fontWeight: 'bold', margin: '3rem' }}>OUR DOCTORS</h4>
+            <Box display="flex" justifyContent="center" m={3} p={1}>
+                {
+                    doctorsInfo.map((doctor, idx) =>
+                        <Box key={idx} p={1}>
+                            <Card className={classes.root}>
+                                <CardActionArea>
+                                    <CardMedia
+                                        component="img"
+                                        alt={doctor.name}
+                                        height="100%"
+                                        image={doctor.img}
+                                        title={doctor.name}
+                                    />
+                                    <CardContent>
+                                        <Typography variant="h5" component="h1">
+                                            {doctor.name}
+                                        </Typography>
+                                        <Typography variant="subtitle2" color="textSecondary" component="h4">
+                                            <PhoneIcon />
+                                            {doctor.phone}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
+                            </Card>
+                        </Box>
+                    )
+                }
+
+
+
             </Box>
         </Container>
     );

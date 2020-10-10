@@ -1,11 +1,11 @@
 import React from 'react';
 import Footer from '../../Footer/FooterTop/Footer';
-import Header from '../../Header/Header';
-import Banner from '../Banner/Banner';
+import Header from '../Header/Header';
+import FeaturedService from '../../HomePage/FeaturedService/FeaturedService';
+import MakeAppointment from '../../HomePage/MakeAppointment/MakeAppointment';
 import ContactUs from '../ContactUs/ContactUs';
-import LearnMore from '../LearnMore/LearnMore';
 import OurDoctors from '../OurDoctors/OurDoctors';
-import ReviewsCard from '../Reviews/ReviewsCard';
+import ReviewsCard from '../Testimonials/ReviewsCard';
 import Services from '../Services/Services';
 import Blogs from '../Blogs/Blogs';
 
@@ -14,12 +14,10 @@ import './Home.css';
 const Home = () => {
     return (
         <>
-            <div className="banner-bg">
-                <Header />
-                <Banner />
-            </div>
+            <Header />
             <Services />
-            <LearnMore />
+            <FeaturedService />
+            <MakeAppointment />
             <ReviewsCard />
             <Blogs />
             <OurDoctors />

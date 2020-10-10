@@ -1,7 +1,13 @@
 .contact-area{
-    background-color: darkgray;
+    position: relative;
+    margin-top: 5rem;
+    background-size: cover;
+    background-image: url(https://i.ibb.co/wdRfrqb/Mask-Group-1.png);
+    background-repeat: no-repeat;
+    background-position: center center;
     text-align: center;
-    display: flex
+    display: flex;
+    padding: 5rem
 }
 
 .contact-form{
@@ -13,8 +19,20 @@
     display: block;
     margin-bottom: 1rem;
     border-radius: .3rem;
+    width: 30rem;
+    border: none;
+    padding: .75rem
 }
 
 .error {
     color: red;
+}
+
+.submit-btn {
+    background-image: linear-gradient(to right, #16D39D, #10CFE7);
+    color: white;
+    margin-top: 20px;
+    width: 30%;
+    /* margin: auto;
+    margin-right: auto; */
 }
