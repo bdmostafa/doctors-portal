@@ -7,13 +7,13 @@ const useStyles = makeStyles((theme) => ({
     root: {
         marginTop: '10rem',
         flexGrow: 1,
-        backgroundImage: `url(https://i.ibb.co/wdRfrqb/Mask-Group-1.png)`,
+        backgroundImage: `linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .7)), url(https://i.ibb.co/wdRfrqb/Mask-Group-1.png)`,
         backgroundRepeat: 'no-repeat',
         backgroundSize: 'cover',
         position: 'relative',
         height: '420px',
         backgroundPosition: 'center center',
-        // color: 'white',
+        color: 'white',
         '& MuiContainer-root::before': {
             content: '',
             display: 'block',
