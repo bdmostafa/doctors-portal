@@ -18,31 +18,26 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Banner = () => {
+const Banner = ({ date, handleAppointmentDate }) => {
     const classes = useStyles();
     const history = useHistory();
     const path = useLocation().pathname;
-    const [date, setDate] = useState(new Date());
 
-    const handleAppointment = () => {
+    const handleAppointmentBtn = () => {
         history.push('/appointment')
     }
 
-    const handleDate = (date) => {
-        setDate(date)
-    }
-    console.log(path)
     return (
         <Container>
             <div className={classes.root}>
                 <Grid className={classes.bannerArea} container spacing={3}>
                     {
                         path === '/appointment'
-                        && <Grid item xs={12} sm={6}>
-                            <h1>Appointment</h1>
+                        && <Grid item xs={12} md={5}>
+                            <h1 style={{marginBottom: '5rem'}}>Appointment</h1>
                             <div>
                                 <Calendar
-                                    onChange={handleDate}
+                                    onChange={handleAppointmentDate}
                                     value={date}
                                 />
                             </div>
@@ -59,7 +54,7 @@ const Banner = () => {
                                     backgroundImage: 'linear-gradient(to right, #16D39D, #10CFE7)',
                                     color: 'white'
                                 }}
-                                onClick={handleAppointment}
+                                onClick={handleAppointmentBtn}
                             >
                                 GET APPOINMENT
                             </Button>
@@ -75,7 +70,6 @@ const Banner = () => {
                 path !== '/appointment'
                 && <BusinessInfoCard />
             }
-
         </Container>
     );
 };

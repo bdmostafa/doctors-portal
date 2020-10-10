@@ -15,3 +15,9 @@
     z-index: -1;
 }
 
+.header-appointment {
+    height:730px;
+    position:relative;
+    background-image: url('https://i.ibb.co/xGczynr/Mask-Group-2.png');
+    background-size: cover,
+}
