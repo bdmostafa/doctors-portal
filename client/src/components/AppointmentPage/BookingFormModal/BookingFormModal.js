@@ -1,4 +1,4 @@
-import { Backdrop, Button, Fade, InputLabel, makeStyles, Modal, Select } from '@material-ui/core';
+import { Backdrop, Button, Fade, makeStyles, Modal } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
 import { userContext } from '../../../App';
@@ -22,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
 const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, visitngHour, selectedDate }) => {
     const classes = useStyles();
 
-    const [appointment, setAppointment] = useContext(userContext);
+    const { appointment, setAppointment } = useContext(userContext);
 
     // Update appoinment state from input form data
     const { register, errors, handleSubmit } = useForm();
@@ -76,7 +76,7 @@ console.log(appointment)
                             <strong> {visitngHour}</strong>
                             <br />
                             at
-                            <strong>{selectedDate.toDateString()}
+                            <strong> {selectedDate.toDateString()}
                             </strong>
                         </p>
                         <input

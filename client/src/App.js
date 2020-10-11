@@ -13,8 +13,9 @@ export const userContext = createContext();
 
 function App() {
   const [appointment, setAppointment] = useState({});
+  const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <userContext.Provider value={[appointment, setAppointment]}>
+    <userContext.Provider value={{appointment, setAppointment, loggedInUser, setLoggedInUser}}>
       <Router>
         <Switch>
           <Route exact path="/">
