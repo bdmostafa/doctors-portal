@@ -8,14 +8,17 @@ import {
 import Home from './components/HomePage/Home/Home';
 import Appointment from './components/AppointmentPage/Appointment/Appointment';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import PrivateRoute from './components/LoginPage/PrivateRoute';
+import Dashboard from './components/DashboardPage/Dashboard/Dashboard';
+import Login from './components/LoginPage/Login';
 
-export const userContext = createContext();
+export const UserContext = createContext();
 
 function App() {
   const [appointment, setAppointment] = useState({});
   const [loggedInUser, setLoggedInUser] = useState({});
   return (
-    <userContext.Provider value={{appointment, setAppointment, loggedInUser, setLoggedInUser}}>
+    <UserContext.Provider value={{appointment, setAppointment, loggedInUser, setLoggedInUser}}>
       <Router>
         <Switch>
           <Route exact path="/">
@@ -27,6 +30,12 @@ function App() {
           <Route path="/appointment">
             <Appointment />
           </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <PrivateRoute path="/dashboard">
+            <Dashboard />
+          </PrivateRoute>
           {/* <Route path="/about">
             <About />
           </Route>
@@ -38,7 +47,7 @@ function App() {
           </Route> */}
         </Switch>
       </Router>
-    </userContext.Provider>
+    </UserContext.Provider>
   );
 }
 

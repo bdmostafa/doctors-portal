@@ -1,7 +1,8 @@
 import { Backdrop, Button, Fade, makeStyles, Modal } from '@material-ui/core';
 import React, { useContext } from 'react';
 import { useForm } from "react-hook-form";
-import { userContext } from '../../../App';
+import { useHistory } from 'react-router-dom';
+import { UserContext } from '../../../App';
 
 const useStyles = makeStyles((theme) => ({
     modal: {
@@ -22,15 +23,24 @@ const useStyles = makeStyles((theme) => ({
 const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, visitngHour, selectedDate }) => {
     const classes = useStyles();
 
-    const { appointment, setAppointment } = useContext(userContext);
+    const history = useHistory();
+
+    const { appointment, setAppointment } = useContext(UserContext);
 
     // Update appoinment state from input form data
     const { register, errors, handleSubmit } = useForm();
     const onSubmit = data => {
-        setAppointment(data);
+        const updatedFromData = { 
+            ...data,
+            dept: selectedDepartment,
+            schedule: visitngHour,
+            date: selectedDate.toDateString()
+        }
+        setAppointment(updatedFromData);
         handleModalClose();
+        history.push('/dashboard');
     }
-console.log(appointment)
+// console.log(appointment)
     return (
         <Modal
             aria-labelledby="transition-modal-title"

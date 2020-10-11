@@ -1,10 +1,10 @@
-.header-container {
+.header-home {
     height:730px;
     position:relative;
     background-image: url('https://i.ibb.co/xGczynr/Mask-Group-2.png');
     background-size: cover,
 }
-.header-container::after, .header-container::before {
+.header-home::after, .header-home::before {
     height:730px;
     content:' ';
     position: absolute;

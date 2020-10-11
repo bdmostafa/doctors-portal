@@ -9,7 +9,7 @@ const Header = ({ selectedDate, handleAppointmentDate }) => {
     const path = useLocation().pathname;
 
     return (
-        <div className={ path === '/appointment' ? 'header-appointment' : 'header-container'}>
+        <div className={ path === '/appointment' ? 'header-appointment' : 'header-home'}>
             <Navbar />
             <Banner selectedDate={selectedDate} handleAppointmentDate={handleAppointmentDate} />
         </div>
