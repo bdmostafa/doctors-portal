@@ -16,7 +16,8 @@ const ContactUs = () => {
                 <h2>Always Connect With Us</h2>
                 <form
                     className="contact-form"
-                    onSubmit={handleSubmit(onSubmit)}>
+                    onSubmit={handleSubmit(onSubmit)}
+                >
                     <input
                         name="email"
                         type="email"
@@ -38,21 +39,27 @@ const ContactUs = () => {
                     }
                     <TextareaAutosize
                         style={{
-                            border: 'none',
-                            padding: '.75rem'
+                            padding: '.75rem',
+                            border: '.5px solid deepskyblue',
+                            borderRadius: '.3rem'
                         }}
-                        required
+                        name="message"
+                        ref={register({ required: true })}
                         rowsMin={7}
                         aria-label="maximum height"
                         placeholder="Your Message *"
-                        defaultValue=""
                     />
+                    <br />
+                    {
+                        errors.message
+                        && <span className="error">Message is required</span>
+                    }
                     <br />
                     <Button
                         type="submit"
                         variant="contained"
                         className="submit-btn"
-                        style={{margin: '0 auto'}}
+                        style={{ margin: '0 auto' }}
                     >
                         SUBMIT
                     </Button>

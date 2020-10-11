@@ -1,4 +1,4 @@
-import { Grid, makeStyles } from '@material-ui/core';
+import { Grid, Icon, makeStyles } from '@material-ui/core';
 import React from 'react';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import RoomIcon from '@material-ui/icons/Room';
@@ -25,8 +25,8 @@ const useStyles = makeStyles((theme) => ({
     iconStyle: {
         paddingRight: '1rem',
         marginLeft: '-1rem',
-        "& .MuiSvgIcon-root": { 
-            fontSize: "4rem" 
+        "& .MuiSvgIcon-root": {
+            fontSize: "4rem"
         }
     },
 }));
@@ -34,15 +34,23 @@ const useStyles = makeStyles((theme) => ({
 const BusinessInfo = () => {
     const classes = useStyles();
 
+    const handleIcon = (icon) => {
+        switch (icon) {
+            case 'AccessTimeIcon': return <AccessTimeIcon />
+            case 'RoomIcon': return <RoomIcon />
+            case 'PhoneInTalkIcon': return <PhoneInTalkIcon />
+            default: return null
+        }
+    }
+
     return (
         <Grid className={classes.root} container spacing={3}>
             {
                 businessInfoData.map((info, idx) =>
-                    <Grid key={idx} style={{padding: '0 5px'}} item sm={4}>
-                        <div className={classes.box} style={{backgroundColor: info.background}}>
+                    <Grid key={idx} style={{ padding: '0 5px' }} item sm={4}>
+                        <div className={classes.box} style={{ backgroundColor: info.background }}>
                             <div className={classes.iconStyle}>
-                                {/* {info.icon} */}
-                                <AccessTimeIcon />
+                                <Icon>{handleIcon(info.icon)}</Icon>
                             </div>
                             <div>
                                 <h6>{info.title}</h6>

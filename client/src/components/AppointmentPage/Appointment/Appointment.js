@@ -13,7 +13,7 @@ console.log(selectedDate)
     return (
         <>
             <Header selectedDate={selectedDate} handleAppointmentDate={handleAppointmentDate} />
-            <AppointmentListings />
+            <AppointmentListings selectedDate={selectedDate} />
             <Footer />
         </>
     );

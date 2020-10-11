@@ -16,17 +16,21 @@
     display: inline-grid;
 }
 
-.contact-form input{
+.contact-form input, .contact-form select{
     display: block;
     margin-bottom: 1rem;
     border-radius: .3rem;
     width: 30rem;
     border: none;
-    padding: .75rem
+    padding: .75rem;
+    border: .5px solid deepskyblue;
 }
 
 .error {
     color: red;
+    margin-top: -1rem;
+    text-align: start;
+    margin-bottom: 1rem;
 }
 
 .submit-btn {

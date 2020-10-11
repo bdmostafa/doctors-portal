@@ -1,24 +1,20 @@
-import AccessTimeIcon from '@material-ui/icons/AccessTime';
-import RoomIcon from '@material-ui/icons/Room';
-import PhoneInTalkIcon from '@material-ui/icons/PhoneInTalk';
-
 const businessInfoData = [
     {
         title: 'Opening Hours',
         description: 'We are open 7 days',
-        icon: AccessTimeIcon,
+        icon: 'AccessTimeIcon',
         background: '#1CC7C1'
     },
     {
         title: 'Visit Our Location',
         description: 'Brooklyn, NW 10003 USA',
-        icon: RoomIcon,
+        icon: 'RoomIcon',
         background: '#3A4256'
     },
     {
         title: 'Call Us Now',
         description: '+122554545441',
-        icon: PhoneInTalkIcon,
+        icon: 'PhoneInTalkIcon',
         background: '#1CC7C1'
     },
 ]
