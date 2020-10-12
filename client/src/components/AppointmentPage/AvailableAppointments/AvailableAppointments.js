@@ -4,7 +4,7 @@ import availableAppointmentLists from '../../DataStore/AvailableAppointmentLists
 import BookingCard from '../BookingCard/BookingCard';
 
 
-const AppointmentListings = ({ selectedDate }) => {
+const AvailableAppointments = ({ selectedDate }) => {
     return (
         <Container style={{ textAlign: 'center' }}>
             <h2 style={{ color: '#1cc7c1', marginTop: '5rem' }}>Available Appointments on {selectedDate.toDateString()} </h2>
@@ -23,4 +23,4 @@ const AppointmentListings = ({ selectedDate }) => {
     );
 };
 
-export default AppointmentListings;
+export default AvailableAppointments;

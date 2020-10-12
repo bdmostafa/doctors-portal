@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const LearnMore = () => {
+const MakeAppointments = () => {
     const history = useHistory();
 
     const classes = useStyles();
@@ -74,4 +74,4 @@ const LearnMore = () => {
     );
 };
 
-export default LearnMore;
+export default MakeAppointments;

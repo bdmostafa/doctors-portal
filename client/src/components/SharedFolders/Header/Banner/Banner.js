@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     }
 }));
 
-const Banner = ({ date, handleAppointmentDate }) => {
+const Banner = ({ selectedDate, handleAppointmentDate }) => {
     const classes = useStyles();
     const history = useHistory();
     const path = useLocation().pathname;
@@ -38,7 +38,7 @@ const Banner = ({ date, handleAppointmentDate }) => {
                             <div>
                                 <Calendar
                                     onChange={handleAppointmentDate}
-                                    value={date}
+                                    value={selectedDate}
                                 />
                             </div>
                         </Grid>

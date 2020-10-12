@@ -51,9 +51,9 @@ const Login = () => {
 
     const { register, errors, handleSubmit } = useForm();
     const onSubmit = data => {
-        const updatedFromData = {
-            ...data,
-        }
+        // const updatedFromData = {
+        //     ...data,
+        // }
         const { email, password } = data;
 
         if (newUser && email && password) {
