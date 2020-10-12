@@ -5,6 +5,7 @@ import BookingCard from '../BookingCard/BookingCard';
 
 
 const AvailableAppointments = ({ selectedDate }) => {
+
     return (
         <Container style={{ textAlign: 'center' }}>
             <h2 style={{ color: '#1cc7c1', marginTop: '5rem' }}>Available Appointments on {selectedDate.toDateString()} </h2>

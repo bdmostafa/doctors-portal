@@ -25,7 +25,7 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
 
     const history = useHistory();
 
-    const { appointment, setAppointment } = useContext(UserContext);
+    const { setAppointment } = useContext(UserContext);
 
     // Update appoinment state from input form data
     const { register, errors, handleSubmit } = useForm();
@@ -34,6 +34,7 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
             ...data,
             dept: selectedDepartment,
             schedule: visitngHour,
+            action: false,
             date: selectedDate.toDateString()
         }
 
@@ -48,11 +49,11 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
                 setAppointment(updatedFromData);
                 handleModalClose();
                 alert('Appoinment created successfully');
-                history.push('/dashboard');
+                history.push('/dashboard/appointments');
             }
         })
     }
-// console.log(appointment)
+
     return (
         <Modal
             aria-labelledby="transition-modal-title"
@@ -132,7 +133,7 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
                             && <span className="error">Phone number is required</span>
                         }
                         <select name="gender" ref={register({ required: true })}>
-                            <option disabled selected >Select your gender</option>
+                            <option disabled defaultValue >Select your gender</option>
                             <option defaultValue="female">Male</option>
                             <option defaultValue="male">Female</option>
                             <option defaultValue="other">Other</option>

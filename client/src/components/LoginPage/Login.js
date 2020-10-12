@@ -115,7 +115,7 @@ const Login = () => {
                         }
                         <input
                             name="password"
-                            type="text"
+                            type="password"
                             ref={register({ required: true })}
                             placeholder="Password*"
                         />

@@ -15,22 +15,25 @@ const useStyles = makeStyles((theme) => ({
         backgroundImage: 'linear-gradient(to right, #16D39D, #10CFE7)',
         color: 'white',
     },
+    rightSide: {
+        display: 'flex',
+        padding: '3rem !important'
+    }
 }));
 
 
 const Dashboard = () => {
     const classes = useStyles();
+
     return (
-        <div>
+        <>
             <div className={classes.root}>
                 <Grid container spacing={3}>
                     <Grid className={classes.sidebar} item xs={12} sm={2}>
                         <Sidebar />
                     </Grid>
-                    <Grid item xs={12} sm={5}>
+                    <Grid className={classes.rightSide} item xs={12} sm={10}>
                         <AppointmentsByDate />
-                    </Grid>
-                    <Grid item xs={12} sm={5}>
 
                     </Grid>
                 </Grid>
@@ -39,7 +42,7 @@ const Dashboard = () => {
 
             <PatientsList />
             <PrescriptionsList />
-        </div>
+        </>
     );
 };
 

@@ -48,6 +48,7 @@ export const createUserWithEmailAndPassword = (email, password) => {
             const newUserInfo = res.user;
             newUserInfo.error = '';
             newUserInfo.success = true;
+            // storeAuthToken();
             return newUserInfo;
         })
         .catch(error => {
@@ -64,6 +65,7 @@ export const signInWithEmailAndPassword = (email, password) => {
             const newUserInfo = res.user;
             newUserInfo.error = '';
             newUserInfo.success = true;
+            storeAuthToken();
             return newUserInfo;
         })
         .catch(err => {

@@ -1,18 +1,31 @@
 import { Grid } from '@material-ui/core';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import './AppointmentsByDate.css';
+import AppointmentsTable from './AppointmentsTable';
 
 const AppointmentList = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
+    const [appointments, setAppointments] = useState([]);
 
     const handleAppointmentDate = (date) => {
-        setSelectedDate(date)
+        setSelectedDate(date); 
     }
 
+    useEffect(()=> {
+        fetch('http://localhost:5000/appointmentsByDate', {
+            method: 'POST',
+            headers: { 'Content-type': 'application/json' },
+            body: JSON.stringify({date: selectedDate.toDateString()})
+        })
+            .then(res => res.json())
+            .then(data => setAppointments(data))
+    }, [selectedDate])
+
     return (
-        <Grid container spacing={3}>
-            <Grid item xs={12} md={5}>
+        <>
+            <Grid item xs={12} sm={5}>
                 <h1 style={{ marginBottom: '5rem' }}>Appointment</h1>
                 <div>
                     <Calendar
@@ -21,9 +34,20 @@ const AppointmentList = () => {
                     />
                 </div>
             </Grid>
-
-        </Grid>
+            <Grid item xs={12} sm={7}>
+                <div style={{display: 'flex'}}>
+                <h2>Total Appointments {appointments.length}</h2>
+                <h4>{selectedDate.toDateString()}</h4>
+                </div>
+                {
+                    appointments.length === 0
+                    ? <small>There is no appointments on this date</small>
+                    : <AppointmentsTable appointments={appointments}></AppointmentsTable>
+                }
+            </Grid>
+        </>
     );
 };
 
 export default AppointmentList;
+
