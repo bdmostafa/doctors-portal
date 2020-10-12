@@ -9,7 +9,7 @@ const Appointment = () => {
     const handleAppointmentDate = (date) => {
         setSelectedDate(date)
     }
-console.log(selectedDate)
+
     return (
         <>
             <Header selectedDate={selectedDate} handleAppointmentDate={handleAppointmentDate} />

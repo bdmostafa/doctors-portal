@@ -1,5 +1,5 @@
 import React from 'react';
-import AppointmentList from '../AppointmentList/AppointmentList';
+import AppointmentsByDate from '../AppointmentsByDate/AppointmentsByDate';
 import PatientsList from '../PatientsList/PatientsList';
 import PrescriptionsList from '../PrescriptionsList/PrescriptionsList';
 import Sidebar from '../Sidebar/Sidebar';
@@ -8,7 +8,7 @@ const Dashboard = () => {
     return (
         <div>
             <Sidebar />
-            <AppointmentList />
+            <AppointmentsByDate />
             <PatientsList />
             <PrescriptionsList />
         </div>

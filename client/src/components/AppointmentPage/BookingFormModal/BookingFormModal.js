@@ -36,9 +36,21 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
             schedule: visitngHour,
             date: selectedDate.toDateString()
         }
-        setAppointment(updatedFromData);
-        handleModalClose();
-        history.push('/dashboard');
+
+        fetch('http://localhost:5000/addAppointment', {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(updatedFromData)
+        })
+        .then(res => res.json())
+        .then(success => {
+            if(success) {
+                setAppointment(updatedFromData);
+                handleModalClose();
+                alert('Appoinment created successfully');
+                history.push('/dashboard');
+            }
+        })
     }
 // console.log(appointment)
     return (
