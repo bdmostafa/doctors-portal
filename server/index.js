@@ -30,24 +30,30 @@ client.connect(err => {
         const appointment = req.body;
 
         appointmentsCollection.insertOne(appointment)
-        .then(result => {
-            res.send(result.insertedCount > 0)
-        })
+            .then(result => {
+                res.send(result.insertedCount > 0)
+            })
     })
 
     // This API is used for getting appointments list by date
     app.post('/appointmentsByDate', (req, res) => {
         const date = req.body;
         console.log(date.date)
-        appointmentsCollection.find({date: date.date})
-        .toArray((err, documents) => {
-            res.send(documents)
-            // console.log(documents)
-        })
+        appointmentsCollection.find({ date: date.date })
+            .toArray((err, documents) => {
+                res.send(documents)
+                // console.log(documents)
+            })
     })
 
 
-
+    // GET all appointments
+    app.get('/appointments', (req, res) => {
+        appointmentsCollection.find({})
+            .toArray((err, documents) => {
+                res.send(documents)
+            })
+    })
 
 
 
