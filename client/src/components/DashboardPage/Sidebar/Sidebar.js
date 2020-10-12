@@ -15,6 +15,7 @@ const Sidebar = () => {
                 <Link to='/dashboard/appointments'>Appointments</Link >
                 <Link to='/dashboard/allPatients'>Patients</Link >
                 <Link to='/dashboard/prescriptions'>Prescriptions</Link >
+                <Link to='/dashboard/addDoctor'>Add Doctor</Link >
                 <Link to='/dashboard'>Settigns</Link >
             </ul>
             <div>

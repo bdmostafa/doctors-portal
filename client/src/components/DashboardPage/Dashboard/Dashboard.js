@@ -1,6 +1,7 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
 import { useLocation } from 'react-router-dom';
+import AddDoctor from '../AddDoctor/AddDoctor';
 import AppointmentsByDate from '../AppointmentsByDate/AppointmentsByDate';
 import PatientsList from '../PatientsList/PatientsList';
 import PrescriptionsList from '../PrescriptionsList/PrescriptionsList';
@@ -44,11 +45,14 @@ console.log(path)
                         {
                             path === '/dashboard/prescriptions' && <PrescriptionsList />
                         }
+                        {
+                            path === '/dashboard/addDoctor' && <AddDoctor />
+                        }
                     </Grid>
                 </Grid>
             </div>
 
-
+            
             
             
         </>
