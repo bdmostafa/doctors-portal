@@ -24,12 +24,25 @@ const client = new MongoClient(
 
 client.connect(err => {
     const appointmentsCollection = client.db(process.env.DB_NAME).collection(process.env.DB_COLLECTION);
+
+    // This API is used for adding new appointment by patients
     app.post('/addAppointment', (req, res) => {
         const appointment = req.body;
 
         appointmentsCollection.insertOne(appointment)
         .then(result => {
             res.send(result.insertedCount > 0)
+        })
+    })
+
+    // This API is used for getting appointments list by date
+    app.post('/appointmentsByDate', (req, res) => {
+        const date = req.body;
+        console.log(date.date)
+        appointmentsCollection.find({date: date.date})
+        .toArray((err, documents) => {
+            res.send(documents)
+            // console.log(documents)
         })
     })
 
