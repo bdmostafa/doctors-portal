@@ -10,14 +10,14 @@ const AppointmentList = () => {
     const [appointments, setAppointments] = useState([]);
 
     const handleAppointmentDate = (date) => {
-        setSelectedDate(date); 
+        setSelectedDate(date);
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         fetch('http://localhost:5000/appointmentsByDate', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({date: selectedDate.toDateString()})
+            body: JSON.stringify({ date: selectedDate.toDateString() })
         })
             .then(res => res.json())
             .then(data => setAppointments(data))
@@ -35,14 +35,14 @@ const AppointmentList = () => {
                 </div>
             </Grid>
             <Grid item xs={12} sm={7}>
-                <div style={{display: 'flex'}}>
-                <h2>Total Appointments {appointments.length}</h2>
-                <h4>{selectedDate.toDateString()}</h4>
+                <div className="appointments-date-heading">
+                    <h2>Total Appointments {appointments.length}</h2>
+                    <h4>{selectedDate.toDateString()}</h4>
                 </div>
                 {
                     appointments.length === 0
-                    ? <small>There is no appointments on this date</small>
-                    : <AppointmentsTable appointments={appointments}></AppointmentsTable>
+                        ? <small>There is no appointments on this date</small>
+                        : <AppointmentsTable appointments={appointments}></AppointmentsTable>
                 }
             </Grid>
         </>

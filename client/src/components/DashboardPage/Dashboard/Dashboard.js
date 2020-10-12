@@ -1,5 +1,6 @@
 import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import AppointmentsByDate from '../AppointmentsByDate/AppointmentsByDate';
 import PatientsList from '../PatientsList/PatientsList';
 import PrescriptionsList from '../PrescriptionsList/PrescriptionsList';
@@ -24,7 +25,8 @@ const useStyles = makeStyles((theme) => ({
 
 const Dashboard = () => {
     const classes = useStyles();
-
+    const path = useLocation().pathname;
+console.log(path)
     return (
         <>
             <div className={classes.root}>
@@ -33,15 +35,22 @@ const Dashboard = () => {
                         <Sidebar />
                     </Grid>
                     <Grid className={classes.rightSide} item xs={12} sm={10}>
-                        <AppointmentsByDate />
-
+                        {
+                            path === '/dashboard/appointments' && <AppointmentsByDate />
+                        }
+                        {
+                            path === '/dashboard/allPatients' && <PatientsList />
+                        }
+                        {
+                            path === '/dashboard/prescriptions' && <PrescriptionsList />
+                        }
                     </Grid>
                 </Grid>
             </div>
 
 
-            <PatientsList />
-            <PrescriptionsList />
+            
+            
         </>
     );
 };

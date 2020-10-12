@@ -19,8 +19,7 @@ const useStyles = makeStyles({
     },
 });
 
-
-const AppointmentsTable = ({ appointments }) => {
+const PatientsListTable = ({ appointments }) => {
     const classes = useStyles();
 
     return (
@@ -28,29 +27,29 @@ const AppointmentsTable = ({ appointments }) => {
             <Table className={classes.table} aria-label="simple table">
                 <TableHead>
                     <TableRow>
+                        <TableCell>Sr. No</TableCell>
                         <TableCell>Name</TableCell>
-                        <TableCell align="center">Schedule</TableCell>
-                        <TableCell align="center">Action</TableCell>
+                        <TableCell align="center">Gender</TableCell>
+                        <TableCell align="center">Age</TableCell>
+                        <TableCell align="center">Weight</TableCell>
+                        <TableCell align="center">Contact</TableCell>
+                        <TableCell align="center">Department</TableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {appointments.map((appointment) => (
+                    {appointments.map((appointment, idx) => (
                         <TableRow key={appointment._id}>
+                            <TableCell component="th" scope="row">
+                                {idx + 1}
+                            </TableCell>
                             <TableCell component="th" scope="row">
                                 {appointment.name}
                             </TableCell>
-                            <TableCell align="center">{appointment.schedule}</TableCell>
-                            <TableCell align="center">
-                                <Button
-                                variant="contained"
-                                style={{
-                                    backgroundImage: 'linear-gradient(to right, #16D39D, #10CFE7)',
-                                    color: 'white'
-                                }}
-                                >
-                                    {appointment.action ? 'Visited' : 'Not Visited'}
-                                </Button>
-                            </TableCell>
+                            <TableCell align="center">{appointment.gender}</TableCell>
+                            <TableCell align="center">{appointment.age}</TableCell>
+                            <TableCell align="center">{appointment.weight}</TableCell>
+                            <TableCell align="center">{appointment.phone}</TableCell>
+                            <TableCell align="center">{appointment.dept}</TableCell>
                         </TableRow>
                     ))}
                 </TableBody>
@@ -59,4 +58,4 @@ const AppointmentsTable = ({ appointments }) => {
     );
 };
 
-export default AppointmentsTable;
+export default PatientsListTable;

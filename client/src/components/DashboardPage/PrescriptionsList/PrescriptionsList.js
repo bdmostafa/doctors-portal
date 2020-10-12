@@ -3,7 +3,7 @@ import React from 'react';
 const PrescriptionsList = () => {
     return (
         <div>
-            prescriptionsList
+            prescriptionsList here is working
         </div>
     );
 };

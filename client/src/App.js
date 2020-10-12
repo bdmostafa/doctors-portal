@@ -42,6 +42,9 @@ function App() {
           <PrivateRoute path="/dashboard/appointments">
             <Dashboard />
           </PrivateRoute>
+          <PrivateRoute path="/dashboard/allPatients">
+            <Dashboard />
+          </PrivateRoute>
          
         </Switch>
       </Router>
