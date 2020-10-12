@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 const Dashboard = () => {
     const classes = useStyles();
     const path = useLocation().pathname;
-console.log(path)
+
     return (
         <>
             <div className={classes.root}>

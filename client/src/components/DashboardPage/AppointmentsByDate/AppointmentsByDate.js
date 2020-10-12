@@ -1,13 +1,15 @@
 import { Grid } from '@material-ui/core';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+import { UserContext } from '../../../App';
 import './AppointmentsByDate.css';
 import AppointmentsTable from './AppointmentsTable';
 
 const AppointmentList = () => {
     const [selectedDate, setSelectedDate] = useState(new Date());
     const [appointments, setAppointments] = useState([]);
+    const { loggedInUser } = useContext(UserContext);
 
     const handleAppointmentDate = (date) => {
         setSelectedDate(date);
@@ -17,7 +19,7 @@ const AppointmentList = () => {
         fetch('http://localhost:5000/appointmentsByDate', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
-            body: JSON.stringify({ date: selectedDate.toDateString() })
+            body: JSON.stringify({ date: selectedDate.toDateString(), email: loggedInUser.email })
         })
             .then(res => res.json())
             .then(data => setAppointments(data))

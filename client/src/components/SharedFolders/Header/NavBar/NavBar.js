@@ -34,16 +34,16 @@ const Header = () => {
                         <Link to="/">Home</Link>
                     </Typography>
                     <Typography variant="h6" >
-                        <Link to="/about">About</Link>
+                        <Link to="/dashboard/appointments">Patient</Link>
                     </Typography>
                     <Typography variant="h6" >
-                        <Link to="/services">Services</Link>
+                        <Link to="/dashboard">Dashboard</Link>
                     </Typography>
                     <Typography variant="h6" >
-                        <Link to="/reviews">Reviews</Link>
+                        <Link to="/dashboard">Admin</Link>
                     </Typography>
                     <Typography variant="h6" >
-                        <Link to="/blog">Blog</Link>
+                        <Link to="/">Blog</Link>
                     </Typography>
                     <Typography variant="h6" >
                         <Link to="/contact-us">Contact Us</Link>
