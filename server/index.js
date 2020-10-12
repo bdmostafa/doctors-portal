@@ -62,6 +62,16 @@ client.connect(err => {
         })
     })
 
+    // This API is used for checking if an user is a doctor or not
+    app.post('/isDoctor', (req, res) => {
+        const email = req.body.email;
+
+        doctorsCollection.find({ email })
+        .toArray((err, doctors) => {
+            res.send(doctors.length > 0)
+        })
+    })
+
 
     // GET all appointments
     app.get('/appointments', (req, res) => {
