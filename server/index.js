@@ -41,13 +41,25 @@ client.connect(err => {
 
     // This API is used for getting appointments list by date
     app.post('/appointmentsByDate', (req, res) => {
-        const date = req.body;
-        console.log(date.date)
-        appointmentsCollection.find({ date: date.date })
+        const date = req.body.date;
+        const email = req.body.email;
+
+        doctorsCollection.find({ email })
+        .toArray((err, doctors) => {
+            const filter = { date }
+            if(doctors.length === 0) {
+                // If doctor email is not found,
+                // email is added to filter
+                filter.email = email;
+            }
+            // find the collections matching date and only loggedInUser email
+            appointmentsCollection.find(filter)
             .toArray((err, documents) => {
+                console.log(date, email, doctors, documents)
                 res.send(documents)
                 // console.log(documents)
             })
+        })
     })
 
 
