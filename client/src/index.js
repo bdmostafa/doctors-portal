@@ -3,10 +3,12 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import { Lines } from 'react-preloaders';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
+    <Lines />
   </React.StrictMode>,
   document.getElementById('root')
 );
