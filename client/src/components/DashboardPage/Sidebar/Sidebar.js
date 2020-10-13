@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
 
 const Sidebar = () => {
-    const { loggedInUser, setLoggedInUser } = useContext(UserContext);
+    const { loggedInUser } = useContext(UserContext);
     const [isDoctor, setIsDoctor] = useState(false);
 
     useEffect(() => {

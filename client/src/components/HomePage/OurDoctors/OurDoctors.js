@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
@@ -20,12 +20,20 @@ const useStyles = makeStyles({
 
 const OurDoctors = () => {
     const classes = useStyles();
+    const [doctors, setDoctors] = useState([]);
+
+    useEffect(() => {
+        fetch('http://localhost:5000/doctors')
+            .then(res => res.json())
+            .then(data => setDoctors(data))
+    }, []);
+    // doctors[0] && console.log(doctors[0].image)
     return (
         <Container align="center">
             <h4 style={{ color: '#15D1C5', fontWeight: 'bold', margin: '3rem' }}>OUR DOCTORS</h4>
             <Box display="flex" justifyContent="center" m={3} p={1}>
                 {
-                    doctorsInfo.map((doctor, idx) =>
+                    doctors.map((doctor, idx) =>
                         <Box key={idx} p={1}>
                             <Card className={classes.root}>
                                 <CardActionArea>
@@ -33,7 +41,8 @@ const OurDoctors = () => {
                                         component="img"
                                         alt={doctor.name}
                                         height="100%"
-                                        image={doctor.img}
+                                        // image={doctor.image.img}
+                                        image={`data:image/png;base64,${doctor.image.img}`}
                                         title={doctor.name}
                                     />
                                     <CardContent>
