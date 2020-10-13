@@ -16,7 +16,7 @@ const AppointmentList = () => {
     }
 
     useEffect(() => {
-        fetch('http://localhost:5000/appointmentsByDate', {
+        fetch('https://serene-oasis-14480.herokuapp.com/appointmentsByDate', {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify({ date: selectedDate.toDateString(), email: loggedInUser.email })

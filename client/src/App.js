@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import Home from './components/HomePage/Home/Home';
 import Appointment from './components/AppointmentPage/Appointment/Appointment';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import PrivateRoute from './components/LoginPage/PrivateRoute';
 import Dashboard from './components/DashboardPage/Dashboard/Dashboard';
 import Login from './components/LoginPage/Login';

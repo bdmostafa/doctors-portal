@@ -38,7 +38,7 @@ const BookingFormModal = ({ openModal, handleModalClose, selectedDepartment, vis
             date: selectedDate.toDateString()
         }
 
-        fetch('http://localhost:5000/addAppointment', {
+        fetch('https://serene-oasis-14480.herokuapp.com/addAppointment', {
             method: 'POST',
             headers: {'Content-type': 'application/json'},
             body: JSON.stringify(updatedFromData)

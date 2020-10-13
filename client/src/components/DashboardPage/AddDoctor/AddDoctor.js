@@ -13,7 +13,7 @@ const AddDoctor = () => {
         formData.append('file', data.file[0]);
         // console.log('data', data);
         // console.log(typeof formData);
-        fetch('http://localhost:5000/addDoctor', {
+        fetch('https://serene-oasis-14480.herokuapp.com/addDoctor', {
             method: 'POST',
             body: formData
         })
