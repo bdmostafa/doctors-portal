@@ -85,24 +85,23 @@ client.connect(err => {
     // API for adding a doctor with profile picture
     app.post('/addDoctor', (req, res) => {
         const file = req.files.file;
-        // console.log(file)
 
-        const fileName = file.name;
-        const filePath = `${__dirname}/doctors/${fileName}`
-        file.mv(filePath, err => {
-            if (err) {
-                console.log(err);
-                res.status(500).send({ msg: 'Failed to upload Image' });
-            }
+        // const fileName = file.name;
+        // const filePath = `${__dirname}/doctors/${fileName}`
+        // file.mv(filePath, err => {
+        //     if (err) {
+        //         console.log(err);
+        //         res.status(500).send({ msg: 'Failed to upload Image' });
+        //     }
             // return res.send({name: fileName})
-            const newImg = fs.readFileSync(filePath);
+            // const newImg = fs.readFileSync(filePath);
+            const newImg = file.data;
             const encodedImg = newImg.toString('base64');
 
             const image = {
-                // description: req.body.description,
                 contentType: file.mimetype,
                 size: file.size,
-                img: Buffer(encodedImg, 'base64')
+                img: Buffer.from(encodedImg, 'base64')
             };
 
             const totalData = JSON.parse(req.body.total)
@@ -111,13 +110,13 @@ client.connect(err => {
             // console.log(totalData)
             doctorsCollection.insertOne(totalData)
                 .then(result => {
-                    fs.remove(filePath, err => {
-                        if (err) console.log(err);
-                        res.send(result.insertedCount > 0);
-                    })
-                    // res.send(result.insertedCount > 0);
+                    // fs.remove(filePath, err => {
+                    //     if (err) console.log(err);
+                    //     res.send(result.insertedCount > 0);
+                    // })
+                    res.send(result.insertedCount > 0);
                 })
-        })
+        // })
 
 
     })
